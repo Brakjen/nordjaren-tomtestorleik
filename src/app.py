@@ -8,12 +8,12 @@ import callbacks
 
 APP_TITLE = "Tomtestorleikar i Rogaland"
 
-def main(df: pd.DataFrame):
+def main():
     app.title = APP_TITLE
-    app.layout = layout.render(df)
+    app.layout = layout.render(DATA)
     return app.server
 
 
 if __name__ == "__main__":
-    main(DATA)
+    main()
     app.run(debug=True)
