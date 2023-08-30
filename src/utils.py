@@ -1,4 +1,3 @@
-import screeninfo
 import ids
 import utils
 
@@ -9,9 +8,6 @@ import dash_bootstrap_components as dbc
 
 from dash import html, dcc
 from dash_extensions.javascript import Namespace
-
-MONITOR_H = screeninfo.get_monitors()[0].height
-MONITOR_W = screeninfo.get_monitors()[0].width
 
 def make_map(
     component_id: str,
@@ -24,7 +20,7 @@ def make_map(
         utils.make_markers(ids.LEAFLET_MAP_MARKERS, df), 
         dl.GestureHandling()
     ],
-    style=dict(height=F"{MONITOR_H * 0.55}px"),
+    style=dict(height=F"700px"),
     id=component_id,
     center=(center_lat, center_lon),
     zoom=9,
@@ -52,12 +48,6 @@ def make_markers(
         spiderfyOnMaxZoom=False,
         superClusterOptions={"maxClusterRadius": 200}
     )
-
-def get_screensize() ->  tuple:
-    monitor = screeninfo.get_monitors()[0]
-    h = monitor.height
-    w = monitor.width
-    return w, h
 
 def make_checklist_municipality(
     component_id: str,

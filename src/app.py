@@ -1,5 +1,4 @@
 import layout
-import pandas as pd
 from maindash import app
 
 from globals import DATA
